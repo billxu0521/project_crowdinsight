@@ -55,7 +55,7 @@ def main():
     print (tfidf.shape)
     print (all_tfidf.shape)
     
-    # 训练和预测一体
+    # 訓練
     text_clf = Pipeline([('vect', CountVectorizer()), ('tfidf', TfidfTransformer()), ('clf', SVC(C=0.99, kernel = 'linear'))])
     text_clf = text_clf.fit(train_content, train_opinion)
     scores = cross_validation.cross_val_score(text_clf, train_content, train_opinion, cv=5)#5-fold cv
